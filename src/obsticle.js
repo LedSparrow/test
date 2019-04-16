@@ -5,25 +5,32 @@ export default class Obsticle {
     this.width = 48;
     this.height = 48;
 
-    this.maxSpeed = 10;
-    this.speedX = 0;
+    this.speed = 100;
 
     this.position = {
       x: -50,
 
-      y: this.gameHeight - 48 * 2
+      y: [this.gameHeight - this.height * 2]
     };
   }
 
   draw(context) {
-    context.fillStyle = "#f0f";
-    context.fillRect(this.position.x, this.position.y, this.width, this.height);
+    for (let i = 0; i < this.position.y.length; i++) {
+      context.fillStyle = "#f0f";
+      context.fillRect(
+        this.position.x,
+        this.position.y[i],
+        this.width,
+        this.height
+      );
+    }
+    //
   }
 
   update(deltaTime) {
     // if (!deltaTime) return;
 
-    this.position.x += 50 / deltaTime;
-    if (this.position.x > 800) this.position.x = -50;
+    this.position.x += this.speed / deltaTime;
+    if (this.position.x > this.gameWidth) this.position.x = -50;
   }
 }

@@ -8,6 +8,8 @@ export default class Frogger {
     this.maxSpeed = 10;
     this.speedX = 0;
 
+    let fcolor;
+
     this.position = {
       x: game.gameWidth / 2 - this.width / 2,
 
@@ -36,18 +38,19 @@ export default class Frogger {
   }
 
   draw(context) {
-    context.fillStyle = "#0f0";
+    context.fillStyle = this.fcolor;
     context.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
   update(deltaTime) {
     // this.position.x += this.speed;
 
-    if (this.position.x < 0) this.position.x = 0;
-    if (this.position.y < 0) this.position.y = 0;
-    if (this.position.x + this.width > 800) this.position.x = 800 - this.width;
-    if (this.position.y + this.height > 600)
-      this.position.x = 600 - this.height;
+    if (this.position.x < 0) this.position.x = 5;
+    if (this.position.y < 0) this.position.y = 5;
+    if (this.position.x + this.width > this.gameWidth)
+      this.position.x = this.gameWidth - this.width - 5;
+    if (this.position.y + this.height > this.gameHeight)
+      this.position.y = this.gameHeight - this.height - 5;
 
     //this.position.x += 5 / deltaTime;
   }

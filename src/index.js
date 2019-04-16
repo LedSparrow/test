@@ -6,8 +6,8 @@ let context = canvas.getContext("2d");
 //make canvas fdadlexible
 //width = "528" height= "576">
 
-const GAME_WIDTH = 800;
-const GAME_HIGHT = 600;
+const GAME_WIDTH = 528;
+const GAME_HIGHT = 576;
 
 //context.clearRect (0, 0, 800, 600);
 
